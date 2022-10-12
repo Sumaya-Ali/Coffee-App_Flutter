@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "414540420598",
+    "project_id": "coffee-app-2e281",
+    "storage_bucket": "coffee-app-2e281.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:414540420598:android:c25c042b4f18c4be8d63d7",
+        "android_client_info": {
+          "package_name": "Sumaya.Jalal.Ali.coffee_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "414540420598-c5fasflkmeiqf3gd99hpso41pjpvfg9o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBumD_-7AF4mqOnj_wIIiEbYLTXRxsZc00"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "414540420598-c5fasflkmeiqf3gd99hpso41pjpvfg9o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
