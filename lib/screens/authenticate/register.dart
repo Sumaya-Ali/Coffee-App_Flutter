@@ -2,7 +2,8 @@ import 'package:coffee_app/services/auth.dart';
 import 'package:flutter/material.dart';
 
 class Register extends StatefulWidget {
-  const Register({Key? key}) : super(key: key);
+  final Function toggleView;
+  Register({required this.toggleView});
 
   @override
   State<Register> createState() => _RegisterState();
@@ -10,6 +11,7 @@ class Register extends StatefulWidget {
 
 class _RegisterState extends State<Register> {
   final AuthService _auth = AuthService();
+
   String email ='';
   String password ='';
 
@@ -22,6 +24,22 @@ class _RegisterState extends State<Register> {
         backgroundColor: Colors.brown[400],
         elevation: 0,
         title: Text('Sign up to Coffee App'),
+        actions: [
+          TextButton.icon(
+              onPressed: (){
+                widget.toggleView();
+              },
+              icon: Icon(
+                Icons.person,
+                color: Colors.white,
+              ),
+              label: Text(
+                'Sign in',
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              ))
+        ],
       ),
       body: Container(
         padding: EdgeInsets.symmetric(vertical: 20.0,horizontal: 50.0),

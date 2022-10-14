@@ -3,7 +3,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class SignIn extends StatefulWidget {
-  const SignIn({Key? key}) : super(key: key);
+  final Function toggleView;
+  SignIn({required this.toggleView});
 
   @override
   State<SignIn> createState() => _SignInState();
@@ -18,14 +19,28 @@ class _SignInState extends State<SignIn> {
   @override
   Widget build(BuildContext context) {
 
-
-
     return Scaffold(
       backgroundColor: Colors.brown[100],
       appBar: AppBar(
         backgroundColor: Colors.brown[400],
         elevation: 0,
         title: Text('Sign in to Coffee App'),
+        actions: [
+          TextButton.icon(
+              onPressed: (){
+                widget.toggleView();
+              },
+              icon: Icon(
+                  Icons.person,
+                  color: Colors.white,
+              ),
+              label: Text(
+                'Register',
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              ))
+        ],
       ),
       body: Container(
         padding: EdgeInsets.symmetric(vertical: 20.0,horizontal: 50.0),
