@@ -1,31 +1,27 @@
 import 'package:coffee_app/services/auth.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class SignIn extends StatefulWidget {
-  const SignIn({Key? key}) : super(key: key);
+class Register extends StatefulWidget {
+  const Register({Key? key}) : super(key: key);
 
   @override
-  State<SignIn> createState() => _SignInState();
+  State<Register> createState() => _RegisterState();
 }
 
-class _SignInState extends State<SignIn> {
+class _RegisterState extends State<Register> {
   final AuthService _auth = AuthService();
-
   String email ='';
   String password ='';
 
   @override
   Widget build(BuildContext context) {
 
-
-
     return Scaffold(
       backgroundColor: Colors.brown[100],
       appBar: AppBar(
         backgroundColor: Colors.brown[400],
         elevation: 0,
-        title: Text('Sign in to Coffee App'),
+        title: Text('Sign up to Coffee App'),
       ),
       body: Container(
         padding: EdgeInsets.symmetric(vertical: 20.0,horizontal: 50.0),
@@ -35,8 +31,8 @@ class _SignInState extends State<SignIn> {
               SizedBox(height: 20.0,),
               TextFormField(
                 onChanged: (val){
-                  setState(() => {
-                    email = val
+                  setState(() {
+                    email = val;
                   });
                 },
               ),
@@ -44,22 +40,22 @@ class _SignInState extends State<SignIn> {
               TextFormField(
                 obscureText: true,
                 onChanged: (val){
-                  setState(() => {
-                    password= val
+                  setState(() {
+                    password= val;
                   });
                 },
               ),
               SizedBox(height: 20.0,),
               ElevatedButton(
-                  onPressed: () async{
-                    print('email = $email');
-                    print('password = $password');
-                  },
-                  style: ElevatedButton.styleFrom(
-                    primary: Colors.pink[400],
-                  ),
-                  child: Text(
-                      'Sign in',
+                onPressed: () async{
+                  print('email = $email');
+                  print('password = $password');
+                },
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.pink[400],
+                ),
+                child: Text(
+                  'Register',
                   style: TextStyle(
                     color: Colors.white,
                   ),),
