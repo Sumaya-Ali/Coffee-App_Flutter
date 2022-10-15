@@ -1,4 +1,5 @@
 import 'package:coffee_app/services/auth.dart';
+import 'package:coffee_app/shared/loading.dart';
 import 'package:flutter/material.dart';
 import 'package:coffee_app/shared/constant.dart';
 
@@ -17,11 +18,12 @@ class _RegisterState extends State<Register> {
   String email ='';
   String password ='';
   String error = '';
+  bool loading = false;
 
   @override
   Widget build(BuildContext context) {
 
-    return Scaffold(
+    return loading? Loading() : Scaffold(
       backgroundColor: Colors.brown[100],
       appBar: AppBar(
         backgroundColor: Colors.brown[400],
@@ -75,10 +77,14 @@ class _RegisterState extends State<Register> {
               ElevatedButton(
                 onPressed: () async{
                   if(_formkey.currentState!.validate()){
+                    setState(() {
+                      loading= true;
+                    });
                      dynamic user = await _auth.RegisterWithEmailAndPasword(email, password);
                      if(user == null){
                        setState(() {
                          error = 'this email is invalid';
+                         loading= false;
                        });
                      }
                   }
