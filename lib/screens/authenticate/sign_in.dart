@@ -1,6 +1,7 @@
 import 'package:coffee_app/services/auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:coffee_app/shared/constant.dart';
 
 class SignIn extends StatefulWidget {
   final Function toggleView;
@@ -52,6 +53,7 @@ class _SignInState extends State<SignIn> {
             children: [
               SizedBox(height: 20.0,),
               TextFormField(
+                decoration: inputFormDecoration.copyWith(hintText: 'Email'),
                 validator: (val) => val!.isEmpty ? 'Enter an email' : null,
                 onChanged: (val){
                   setState(() => {
@@ -61,6 +63,7 @@ class _SignInState extends State<SignIn> {
               ),
               SizedBox(height: 20.0,),
               TextFormField(
+                decoration: inputFormDecoration.copyWith(hintText: 'Password'),
                 validator: (val) => val!.length <6 ? 'Enter password 6+ characters long' : null,
                 obscureText: true,
                 onChanged: (val){
