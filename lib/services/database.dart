@@ -13,4 +13,8 @@ class DatabaseService {
       'strength': strength,
     });
   }
+
+  Stream<QuerySnapshot> get coffeePreferences {
+    return coffeeCollection.snapshots();
+  }
 }

@@ -1,12 +1,18 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:coffee_app/screens/home/coffeePreferencesList.dart';
 import 'package:coffee_app/services/auth.dart';
+import 'package:coffee_app/services/database.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final AuthService _auth = AuthService();
-    return Container(
+    return StreamProvider<QuerySnapshot?>.value(
+      initialData: null,
+      value: DatabaseService(uid: '').coffeePreferences,
       child: Scaffold(
         backgroundColor: Colors.brown[50],
         appBar: AppBar(
@@ -31,6 +37,7 @@ class Home extends StatelessWidget {
             ),
           ],
         ),
+        body: CoffeePreferencesList(),
       ),
     );
   }
