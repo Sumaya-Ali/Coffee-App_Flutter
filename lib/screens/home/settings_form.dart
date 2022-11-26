@@ -57,6 +57,20 @@ class _SettinsFormState extends State<SettinsForm> {
               ),
           ),
           SizedBox(height: 20.0,),
+          Slider(
+            min: 100.0,
+            max: 900.0,
+            divisions: 8,
+            onChanged: (val) => {
+              setState(
+            () =>{
+              _currentStrength = val.round(),
+            })},
+            value: _currentStrength.toDouble(),
+            activeColor: Colors.brown[_currentStrength],
+            inactiveColor: Colors.brown[_currentStrength],
+          ),
+          SizedBox(height: 20.0,),
           ElevatedButton(
               style: ElevatedButton.styleFrom(
                 primary: Colors.pink[400],
