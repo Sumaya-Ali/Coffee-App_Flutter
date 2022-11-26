@@ -16,11 +16,13 @@ class _CoffeePreferencesListState extends State<CoffeePreferencesList> {
 
     final coffee = Provider.of<List<Coffee>>(context);
 
-    return ListView.builder(
+     return coffee != null ? ListView.builder(
         itemCount: coffee.length,
         itemBuilder: (context,index){
           return CoffeeTile(coffee: coffee[index]);
-        });
+        })
+     : Container()
+     ;
   }
 }
 
