@@ -1,4 +1,5 @@
 import 'package:coffee_app/models/coffee.dart';
+import 'package:coffee_app/screens/home/coffee_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -14,12 +15,12 @@ class _CoffeePreferencesListState extends State<CoffeePreferencesList> {
   Widget build(BuildContext context) {
 
     final coffee = Provider.of<List<Coffee>>(context);
-    coffee.forEach((elem) {
-      print(elem.name);
-      print(elem.sugars);
-      print(elem.strength);
-    });
-    return Container();
+
+    return ListView.builder(
+        itemCount: coffee.length,
+        itemBuilder: (context,index){
+          return CoffeeTile(coffee: coffee[index]);
+        });
   }
 }
 
