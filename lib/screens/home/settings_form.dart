@@ -90,9 +90,14 @@ class _SettinsFormState extends State<SettinsForm> {
                       primary: Colors.pink[400],
                     ),
                     onPressed: () async{
-                      print(_currentName);
-                      print(_currentSugar);
-                      print(_currentStrength);
+                      if(_formkey.currentState!.validate()){
+                        await DatabaseService(uid: user.uid).updateUserData(
+                            _currentSugar ?? userData.sugars,
+                            _currentName ?? userData.name,
+                            _currentStrength ?? userData.strength,
+                        );
+                        Navigator.pop(context);
+                      }
                     },
                     child: Text(
                       'Update',
