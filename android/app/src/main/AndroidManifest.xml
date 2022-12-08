@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="Sumaya.Jalal.Ali.coffee_app">
    <application
-        android:label="coffee_app"
+        android:label="Kaffeepause"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
